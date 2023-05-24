@@ -1,21 +1,26 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+import config from "./config.json"
 
 app.get("/", (req, res) => res.type('html').send(html));
 
 app.get("/tags", (req, res) => RequestTags(req, res));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 function RequestTags(req, res) {
-  config = fetch('./config.json');
+  // config = fetch('./config.json');
   print(config);
 }
 
 function RequestConcept(req, res) {
 
 }
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+
+//<--------------------- OLD -------------------------->
 
 const html = `
 <!DOCTYPE html>
