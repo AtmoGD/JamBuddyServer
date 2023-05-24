@@ -8,9 +8,9 @@ app.get("/", (req, res) => res.type('html').send(html));
 
 app.get("/tags", (req, res) => RequestTags(req, res));
 
-
 function RequestTags(req, res) {
-  console.log(config);
+  tags = config["tags"];
+  res.type('html').send(tags);
 }
 
 function RequestConcept(req, res) {
