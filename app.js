@@ -4,7 +4,18 @@ const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => res.type('html').send(html));
 
+app.get("/tags", (req, res) => RequestTags(req, res));
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+function RequestTags(req, res) {
+  config = fetch('./config.json');
+  print(config);
+}
+
+function RequestConcept(req, res) {
+
+}
 
 const html = `
 <!DOCTYPE html>
