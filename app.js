@@ -11,7 +11,7 @@ app.get("/tags", (req, res) => RequestTags(req, res));
 function RequestTags(req, res) {
   tags = config["tags"];
   res.header("Access-Control-Allow-Origin", "*");
-  res.type('html').send(tags);
+  res.type('application/json').send(tags);
 }
 
 function RequestConcept(req, res) {
