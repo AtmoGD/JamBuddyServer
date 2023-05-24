@@ -2,13 +2,15 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
+const config = require('./config.json');
+
 app.get("/", (req, res) => res.type('html').send(html));
 
 app.get("/tags", (req, res) => RequestTags(req, res));
 
 
 function RequestTags(req, res) {
-  // config = fetch('./config.json');
+  console.log(config);
 }
 
 function RequestConcept(req, res) {
