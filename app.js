@@ -1,23 +1,60 @@
+// Set up the server
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Load the configuration file
 const config = require('./config.json');
 
-app.get("/", (req, res) => res.type('html').send(html));
+// Set up the OpenAI API
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
+// Set up the prompt endpoint
+app.get("/", (req, res) => res.type('html').send(html));
+app.get("/prompt", (req, res) => RequestConcept(req, res));
+
+// Set up the tags endpoint
 app.get("/tags", (req, res) => RequestTags(req, res));
 
+// Send the tags to the client
 function RequestTags(req, res) {
-  tags = config["tags"];
   res.header("Access-Control-Allow-Origin", "*");
+
+  tags = config["tags"];
+
   res.type('application/json').send(tags);
 }
 
-function RequestConcept(req, res) {
+// Create a openai request and send the response to the client
+async function RequestConcept(req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
 
+  tags = req.query.tags;
+  theme = req.query.theme;
+
+  const response = await openai.createCompletion({
+    model: config["model"],
+    prompt: GeneratePrompt(tags, theme),
+    temperature: config["temperature"],
+    max_tokens: config["max_tokens"],
+  });
+
+  res.type('application/json').send(response);
 }
 
+// Generate a prompt from the tags and the theme
+function GeneratePrompt(tags, theme) {
+  prompt = config["prompt"];
+  prompt += "Theme: " + theme + "\n";
+  prompt += "Tags: " + tags + "\n";
+  return prompt;
+}
+
+// Start the server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 
