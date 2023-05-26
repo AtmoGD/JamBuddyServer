@@ -43,7 +43,9 @@ async function RequestConcept(req, res) {
     max_tokens: config["max_tokens"],
   });
 
-  res.type('application/json').send(response);
+  print(response);
+
+  res.send(response);
 }
 
 // Generate a prompt from the tags and the theme
