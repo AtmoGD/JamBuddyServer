@@ -35,6 +35,8 @@ function GeneratePrompt(tags, theme) {
 }
 
 function GetParameters(req) {
+  console.log("Tags: " + req.query.tags);
+  console.log("Theme: " + req.query.theme);
   return [
     req.query.tags,
     req.query.theme,
