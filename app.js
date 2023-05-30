@@ -37,7 +37,6 @@ function GeneratePrompt(tags, theme) {
 function GetParameters(req) {
   console.log("Tags: " + req.query.tags);
   console.log("Theme: " + req.query.theme);
-
   return [
     req.query.tags,
     req.query.theme,
@@ -46,8 +45,10 @@ function GetParameters(req) {
 
 function GetOpenAIObject() {
   const key = process.env.OPENAI_API_KEY == undefined ? require('./secret.json')["OPENAI_API_KEY"] : process.env.OPENAI_API_KEY;
-
-  return new OpenAIApi(new Configuration({ apiKey: key }));
+  const configuration = new Configuration({
+    apiKey: key
+  });
+  return new OpenAIApi(configuration);
 }
 
 async function GenerateConcept(openai, tags, theme) {
