@@ -1,11 +1,11 @@
 {
-    "model": "text-davinci-003",
+    "model": "gpt-4",
     "temperature": 0.7,
     "max_tokens": 256,
-    "conceptPrompt": "You are GameJamGPT now. Your job is to come up with a game idea for game jams. I will give you some tags and a theme. Here are the tags and theme:",
-    "imagePrompt": "This is the image prompt",
     "imageSize": "256x256",
     "numberOfImages": 2,
+    "conceptPrompt": "You are GameJamGPT now. Your job is to come up with a game idea for game jams. I will give you some tags and a theme. Here are the tags and theme:",
+    "imagePrompt": "This is the image prompt",
     "tags": [
         "2D",
         "3D",
