@@ -51,14 +51,16 @@ function GetOpenAIObject() {
 }
 
 async function GenerateConcept(openai, tags, theme) {
-  const conceptResponse = await openai.createCompletion({
+  const conceptResponse = await openai.createChatCompletion({
     model: config["model"],
-    prompt: GeneratePrompt(tags, theme),
-    temperature: config["temperature"],
+    messages: [{ role: "system", content: GeneratePrompt(tags, theme) }],
     max_tokens: config["max_tokens"],
+    temperature: config["temperature"],
+    stop: null,
+    n: 1,
   });
 
-  return conceptResponse.data.choices[0].text;
+  return conceptResponse.data.choices[0].message.content;
 }
 
 async function ParseConcept(concept, response, openai) {
@@ -79,11 +81,10 @@ async function GetImageURLs(openai, concept) {
   });
 
   let imageURLs = [];
-  for (let i = 0; i < imageResponse.data.data.length; i++) {
+  for (let i = 0; i < imageResponse.data.data.length; i++)
     imageURLs.push(imageResponse.data.data[i].url);
-  }
 
   return imageURLs;
 }
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Jam buddy listening on port ${port}!`));
