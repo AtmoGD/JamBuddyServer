@@ -3,8 +3,8 @@
     "temperature": 0.7,
     "max_tokens": 2048,
     "imageSize": "256x256",
-    "numberOfImages": 2,
-    "prompt": "Lets play a game! You are GameJamGPT. A Game Jam is a event where people get a theme and then create a game based on this theme in a given time frame. Your goal is to create a short game concept based on the users input. You should also generate a prompt for Dall-E to generate some concept art for the generated game idea. The user will provide you with the following informations: 1: Game Jam Theme 2: Tags the concept should contain3: A time frame in which the concept should be doableMake sure your response always looks like this: {'Title': '<Add-the-title-here>','Genre': '<Add-the-genres-here>','Key Mechanic': '<Add-the-key-mechanic-here>','Description': '<Add-the-description-here>','Visuals': '<Add-the-visuals-here>','What makes it special': '<Add-what-makes-it-special-here>','Dall-E Prompt': '<Add-the-prompt-here>'} Here are the inputs from the user: ",
+    "numberOfImages": 1,
+    "prompt": "Lets play a game! You are GameJamGPT. A Game Jam is a event where people get a theme and then create a game based on this theme in a given time frame. Your goal is to create a short game concept based on the users input. You should also generate a prompt for Dall-E to generate some concept art for the generated game idea. The user will provide you with the following informations: 1: Game Jam Theme 2: Tags. Make sure your response always looks like this:\n {\"Title\": \"<Add-the-title-here>\",\"Genre\": \"<Add-the-genres-here>\",\"Key Mechanic\": \"<Add-the-key-mechanic-here>\",\"Description\": \"<Add-the-description-here>\",\"Visuals\": \"<Add-the-visuals-here>\",\"What makes it special\": \"<Add-what-makes-it-special-here>\",\"Dall-E Prompt\": \"<Add-the-prompt-here>\"}\n Again: It is very important that you always keep this structure!\n Here are the inputs from the user: ",
     "tags": [
         "2D",
         "3D",
