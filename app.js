@@ -15,7 +15,7 @@ function RequestTags(req, res) {
 async function RequestConcept(req, res) {
   res.header("Access-Control-Allow-Origin", "*");
 
-  let response = { title: "", genre: "", key_mechanic: "", description: "", visuals: "", special: "", images: [] };
+  let response = { concept: { title: "", genre: "", key_mechanic: "", description: "", visuals: "", special: "" }, images: [] };
 
   try {
     const openai = GetOpenAIObject();
@@ -62,12 +62,12 @@ async function GenerateConcept(openai, tags, theme) {
 }
 
 async function ParseConcept(concept, response, openai) {
-  response.title = concept["Title"];
-  response.genre = concept["Genre"];
-  response.key_mechanic = concept["Key Mechanic"];
-  response.description = concept["Description"];
-  response.visuals = concept["Visuals"];
-  response.special = concept["What makes it special"];
+  response.concept.title = concept["Title"];
+  response.concept.genre = concept["Genre"];
+  response.concept.key_mechanic = concept["Key Mechanic"];
+  response.concept.description = concept["Description"];
+  response.concept.visuals = concept["Visuals"];
+  response.concept.special = concept["What makes it special"];
   response.images = await GetImageURLs(openai, concept["Dall-E Prompt"]);
 }
 
