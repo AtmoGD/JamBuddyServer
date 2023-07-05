@@ -83,6 +83,7 @@ async function GetImageURLs(openai, concept) {
 
   console.log(imageResponse);
 
+
   return imageResponse;
 
   let imageURLs = [];
