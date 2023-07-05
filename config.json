@@ -1,5 +1,5 @@
 {
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-4",
     "temperature": 0.7,
     "max_tokens": 2048,
     "imageSize": "512x512",
