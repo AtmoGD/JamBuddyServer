@@ -78,6 +78,7 @@ async function GetImageURLs(openai, concept) {
     prompt: JSON.stringify(concept),
     n: config["numberOfImages"],
     size: config["imageSize"],
+    response_format: "b64_json",
   });
 
   let imageURLs = [];
