@@ -81,6 +81,8 @@ async function GetImageURLs(openai, concept) {
     response_format: "b64_json",
   });
 
+  console.log(imageResponse);
+
   let imageURLs = [];
   for (let i = 0; i < imageResponse.data.data.length; i++)
     imageURLs.push(imageResponse.data.data[i].url);
