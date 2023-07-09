@@ -4,7 +4,7 @@ ___
 
 **UI/UX:** Anna Tribulowski
 
-**Frontend** Peter Heinemann
+**Frontend:** Peter Heinemann
 
 **Backend:** Dennis Hawran
 ___
